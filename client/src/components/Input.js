@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AutoSearch from './AutoSearch';
 import axios from 'axios';
 
 class Input extends Component {
@@ -32,6 +33,8 @@ class Input extends Component {
 
   render() {
     let { action } = this.state;
+    // console.log("bepis");
+    // console.log(this.props.getMusics());
     return (
       <div>
         <input type="text" onChange={this.handleChange} value={action} />

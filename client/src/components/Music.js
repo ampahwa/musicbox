@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Input from './Input';
 import ListMusic from './ListMusic';
+import AutoSearch from './AutoSearch';
+//import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 class Music extends Component {
   state = {
@@ -38,12 +40,13 @@ class Music extends Component {
 
   render() {
     let { musics } = this.state;
-
+    // console.log(musics);
     return (
       <div>
         <h1>My Music(s)</h1>
         <Input getMusics={this.getMusics} />
         <ListMusic musics={musics} deleteMusic={this.deleteMusic} />
+        <AutoSearch musics={musics} />
       </div>
     );
   }

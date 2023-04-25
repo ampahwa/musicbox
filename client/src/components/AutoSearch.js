@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './Input';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 const movieItems = [
@@ -20,9 +21,10 @@ const movieItems = [
     {
       id: 3,
       title: "Alien 2",
-      description: "Ripley is back for a new advenure",
+      description: "Ripley is back for a new adventure",
     },
   ];
+
 
 const handleOnSearch = (string, results) => {
     console.log(string, results);
@@ -40,26 +42,22 @@ const handleOnClear = () => {
     console.log("Cleared");
 };
 
-class AutoSearch extends Component {
-    render() {
-        return(
-            <div style={{ width: 200, margin: 20 }}>
-            <div style={{ marginBottom: 20 }}>Type "Titanic"</div>
-            <ReactSearchAutocomplete
-            items={movieItems}
-            fuseOptions={{ keys: ["title", "description"] }} // Search on both fields
-            resultStringKeyName="title" // String to display in the results
-            onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            onClear={handleOnClear}
-            showIcon={false}
-            autoFocus
-            />
-        </div>
-        )
-    } 
+const AutoSearch = ({ musics }) => {
+    return(
+        <ReactSearchAutocomplete
+        items={ musics }
+        fuseOptions={{ keys: ["action"] }} // Search on both fields
+        resultStringKeyName="action" // String to display in the results
+        onSearch={handleOnSearch}
+        onHover={handleOnHover}
+        onSelect={handleOnSelect}
+        onFocus={handleOnFocus}
+        onClear={handleOnClear}
+        showIcon={false}
+        autoFocus
+        />
+        
+    )
 }
 export default AutoSearch;
 
